@@ -1,11 +1,15 @@
 package com.unievangelica.progwebback.dominio.produto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.internal.NotNull;
+import com.unievangelica.progwebback.dominio.categoria.Categoria;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "produto")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,6 +35,12 @@ public class Produto implements Serializable {
     @NotNull
     @Column(name = "preco")
     private Float preco;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
+    private Categoria categoria;
+
 
 
     // GET & SET

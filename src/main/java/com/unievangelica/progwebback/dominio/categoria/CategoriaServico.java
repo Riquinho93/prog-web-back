@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProdutoServico {
+public class CategoriaServico {
 
     @Autowired
     private CategoriaRepositorio categoriaRepositorio;
