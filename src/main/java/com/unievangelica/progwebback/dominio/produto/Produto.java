@@ -3,6 +3,7 @@ package com.unievangelica.progwebback.dominio.produto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.internal.NotNull;
 import com.unievangelica.progwebback.dominio.categoria.Categoria;
+import com.unievangelica.progwebback.dominio.modalidade.Modalidade;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,9 +25,6 @@ public class Produto implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    @NotNull
-    @Column(name = "modalidade")
-    private String modalidade;
 
     @NotNull
     @Column(name = "descricao")
@@ -41,6 +39,9 @@ public class Produto implements Serializable {
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "modalidade_id", referencedColumnName = "id")
+    private Modalidade modalidade;
 
 
     // GET & SET
@@ -58,14 +59,6 @@ public class Produto implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(String modalidade) {
-        this.modalidade = modalidade;
     }
 
     public String getDescricao() {
