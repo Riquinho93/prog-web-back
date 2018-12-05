@@ -34,10 +34,25 @@ public class Produto implements Serializable {
     @Column(name = "preco")
     private Float preco;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Modalidade getModalidade() {
+        return modalidade;
+    }
+
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "modalidade_id", referencedColumnName = "id")
