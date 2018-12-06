@@ -35,4 +35,8 @@ public class ProdutoServico {
         return produtoRepositorio.findAll();
     }
 
+    public List<Produto> buscarTodosPorModalidade(long modalidadeId) {
+        return produtoRepositorio.findProdutosByModalidadeId(modalidadeId);
+    }
+
 }

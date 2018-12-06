@@ -38,6 +38,10 @@ public class ProdutoControlador {
         return new ResponseEntity(produtoServico.buscarPeloId(produtoId), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/modalidade/{modalidadeId}")
+    public ResponseEntity<?> buscarTodosPorModalidade(@PathVariable long modalidadeId) {
+        return new ResponseEntity(produtoServico.buscarTodosPorModalidade(modalidadeId), HttpStatus.OK);
+    }
 
 
 }
